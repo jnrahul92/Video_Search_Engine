@@ -1,0 +1,24 @@
+<!-- templates/search_results.html -->
+<h1>Search Results</h1>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<table>
+	<tr>
+		<th> Video Name </th>
+		<th> Link to Video </th>
+		<th> Video Author </th>
+		<th> Published Date </th>
+	</tr>
+	{% for video in object_list %}
+		<tr>
+			<td> {{ video.name }} </td>
+			<td> <a href = {{ video.videoFile.url }}> <img src = {{video.thumbnail.url}} width = "300" height = "180"> </a> </td>
+			<td> {{ video.author }} </td>
+			<td> {{ video.pubDate }} </td>
+		</tr>
+	{% endfor %}
+</table>
